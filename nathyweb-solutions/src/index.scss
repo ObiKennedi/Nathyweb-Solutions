@@ -1,0 +1,199 @@
+// =============================================================
+// NathWebSolutions — Design tokens
+// Web • Software • Digital Solutions
+// Colours sampled from the master logo. Dark is the primary theme.
+// =============================================================
+
+@use "sass:map";
+
+// Font: Montserrat (wordmark face) + JetBrains Mono for code
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400&display=swap");
+
+// -------------------------------------------------------------
+// SCSS maps (for loops / functions)
+// -------------------------------------------------------------
+$brand: (
+  "navy-950":   #050817,
+  "navy-900":   #0a112d,
+  "navy-800":   #121b36,
+  "navy-700":   #1b2741,
+  "blue-600":   #0068f0,
+  "blue-500":   #0a85fc,
+  "blue-400":   #18a0f8,
+  "blue-100":   #e6f1ff,
+  "silver-300": #afb4c7,
+  "white":      #ffffff,
+);
+
+$breakpoints: (
+  "sm":  640px,
+  "md":  768px,
+  "lg":  1024px,
+  "xl":  1280px,
+  "2xl": 1536px,
+);
+
+@mixin bp($key) {
+  @media (min-width: map.get($breakpoints, $key)) { @content; }
+}
+
+// -------------------------------------------------------------
+// :root — dark theme (default)
+// -------------------------------------------------------------
+:root {
+  color-scheme: dark;
+
+  // Brand palette
+  --nws-navy-950: #050817;
+  --nws-navy-900: #0a112d;
+  --nws-navy-800: #121b36;
+  --nws-navy-700: #1b2741;
+  --nws-blue-600: #0068f0;
+  --nws-blue-500: #0a85fc;
+  --nws-blue-400: #18a0f8;
+  --nws-blue-100: #e6f1ff;
+  --nws-silver-300: #afb4c7;
+  --nws-white: #ffffff;
+
+  // Gradients
+  --nws-gradient-brand: linear-gradient(135deg, #18a0f8 0%, #0a85fc 50%, #0068f0 100%);
+  --nws-gradient-ribbon: linear-gradient(135deg, #ffffff 0%, #e4e7ef 55%, #afb4c7 100%);
+  --nws-gradient-night: radial-gradient(120% 120% at 0% 0%, #1b2741 0%, #0a112d 45%, #050817 100%);
+
+  // Semantic — surfaces & text
+  --nws-surface: var(--nws-navy-900);
+  --nws-surface-deep: var(--nws-navy-950);
+  --nws-surface-raised: var(--nws-navy-800);
+  --nws-line: var(--nws-navy-700);
+  --nws-ink: #f5f7ff;
+  --nws-ink-muted: #8a93ad;
+  --nws-accent: var(--nws-blue-500);
+
+  // Semantic — actions
+  --nws-primary: var(--nws-blue-600);
+  --nws-primary-hover: var(--nws-blue-500);
+  --nws-on-primary: var(--nws-white);
+  --nws-focus: var(--nws-blue-400);
+
+  // Semantic — states
+  --nws-success: #22c55e;
+  --nws-warning: #f59e0b;
+  --nws-danger: #f43f5e;
+
+  // Typography
+  --nws-font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --nws-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --nws-fw-regular: 400;
+  --nws-fw-medium: 500;
+  --nws-fw-semibold: 600;
+  --nws-fw-bold: 700;
+
+  --nws-fs-display-xl: clamp(2.75rem, 1.5rem + 5vw, 4.5rem);   // → 72px
+  --nws-fs-display-lg: clamp(2.25rem, 1.4rem + 3.5vw, 3.5rem); // → 56px
+  --nws-fs-h1: clamp(2rem, 1.6rem + 1.5vw, 2.5rem);            // → 40px
+  --nws-fs-h2: clamp(1.625rem, 1.4rem + 1vw, 2rem);            // → 32px
+  --nws-fs-h3: 1.5rem;     // 24px
+  --nws-fs-h4: 1.25rem;    // 20px
+  --nws-fs-body-lg: 1.125rem; // 18px
+  --nws-fs-body: 1rem;     // 16px
+  --nws-fs-body-sm: 0.875rem; // 14px
+  --nws-fs-eyebrow: 0.8125rem; // 13px
+  --nws-fs-button: 0.9375rem;  // 15px
+
+  --nws-lh-tight: 1.05;
+  --nws-lh-heading: 1.2;
+  --nws-lh-body: 1.625;
+
+  --nws-ls-tight: -0.02em;
+  --nws-ls-eyebrow: 0.3em;
+
+  // Spacing (4px base)
+  --nws-space-1: 0.25rem;  // 4
+  --nws-space-2: 0.5rem;   // 8
+  --nws-space-3: 0.75rem;  // 12
+  --nws-space-4: 1rem;     // 16
+  --nws-space-6: 1.5rem;   // 24
+  --nws-space-8: 2rem;     // 32
+  --nws-space-12: 3rem;    // 48
+  --nws-space-16: 4rem;    // 64
+  --nws-space-24: 6rem;    // 96
+  --nws-space-32: 8rem;    // 128
+
+  // Radius
+  --nws-radius-sm: 6px;
+  --nws-radius-md: 12px;
+  --nws-radius-lg: 20px;
+  --nws-radius-xl: 32px;
+  --nws-radius-pill: 999px;
+
+  // Elevation
+  --nws-shadow-sm: 0 1px 2px rgba(5, 8, 23, 0.24);
+  --nws-shadow-md: 0 8px 24px rgba(5, 8, 23, 0.32);
+  --nws-shadow-lg: 0 24px 64px rgba(5, 8, 23, 0.48);
+  --nws-glow-blue: 0 0 40px rgba(10, 133, 252, 0.35);
+
+  // Layout
+  --nws-container: 1200px;
+  --nws-container-wide: 1400px;
+  --nws-gutter: clamp(1rem, 4vw, 2rem);
+  --nws-header-h: 72px;
+
+  // Motion
+  --nws-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --nws-dur-fast: 150ms;
+  --nws-dur: 250ms;
+  --nws-dur-slow: 450ms;
+
+  // Z-index
+  --nws-z-header: 100;
+  --nws-z-dropdown: 200;
+  --nws-z-modal: 300;
+  --nws-z-toast: 400;
+}
+
+// -------------------------------------------------------------
+// Light theme — opt in with <html data-theme="light">
+// -------------------------------------------------------------
+[data-theme="light"] {
+  color-scheme: light;
+
+  --nws-surface: #f4f7fc;
+  --nws-surface-deep: #e9eef7;
+  --nws-surface-raised: var(--nws-white);
+  --nws-line: #dde3ef;
+  --nws-ink: var(--nws-navy-900);
+  --nws-ink-muted: #5b6580;
+  --nws-accent: #0058cc;
+
+  --nws-primary: var(--nws-blue-600);
+  --nws-primary-hover: #0058cc;
+  --nws-focus: var(--nws-blue-600);
+
+  --nws-success: #15803d;
+  --nws-warning: #b45309;
+  --nws-danger: #be123c;
+
+  --nws-shadow-sm: 0 1px 2px rgba(10, 17, 45, 0.08);
+  --nws-shadow-md: 0 8px 24px rgba(10, 17, 45, 0.1);
+  --nws-shadow-lg: 0 24px 64px rgba(10, 17, 45, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --nws-dur-fast: 0ms;
+    --nws-dur: 0ms;
+    --nws-dur-slow: 0ms;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

@@ -1,0 +1,251 @@
+// =============================================================
+// About section
+// Requires _variables.scss (--nws-* tokens) and .btn
+// =============================================================
+
+.about {
+  position: relative;
+  overflow: hidden;
+  background: var(--nws-navy-900);
+  color: var(--nws-ink);
+  scroll-margin-top: 68px;
+
+  &__inner {
+    max-width: var(--nws-container-wide);
+    margin: 0 auto;
+    padding: var(--nws-space-16) var(--nws-gutter);
+
+    @media (min-width: 768px) { padding-block: var(--nws-space-24); }
+  }
+
+  &__intro {
+    display: grid;
+    gap: var(--nws-space-12);
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1.05fr 1fr;
+      gap: var(--nws-space-16);
+    }
+  }
+
+  // ---- Text ----
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nws-space-4);
+    margin: 0 0 var(--nws-space-4);
+    color: var(--nws-blue-400);
+    font: var(--nws-fw-medium) var(--nws-fs-eyebrow)/1 var(--nws-font-sans);
+    letter-spacing: var(--nws-ls-eyebrow);
+    text-transform: uppercase;
+  }
+
+  &__eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--nws-blue-500);
+    box-shadow: 10px -10px 0 -2px var(--nws-white);
+  }
+
+  &__title {
+    margin: 0 0 var(--nws-space-6);
+    font: var(--nws-fw-bold) var(--nws-fs-h1)/1.15 var(--nws-font-sans);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+
+    @media (min-width: 1024px) { font-size: 2.75rem; }
+
+    em {
+      font-style: normal;
+      background: var(--nws-gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  &__copy {
+    max-width: 560px;
+    margin: 0 0 var(--nws-space-4);
+    color: var(--nws-ink-muted);
+    font: var(--nws-fw-regular) var(--nws-fs-body-lg)/var(--nws-lh-body) var(--nws-font-sans);
+  }
+
+  &__founder {
+    display: flex;
+    align-items: center;
+    gap: var(--nws-space-4);
+    margin: var(--nws-space-8) 0 0;
+    padding-top: var(--nws-space-6);
+    border-top: 1px solid var(--nws-navy-700);
+
+    figcaption {
+      display: grid;
+      gap: 2px;
+    }
+
+    strong { font: var(--nws-fw-semibold) 1rem/1.3 var(--nws-font-sans); }
+
+    span:not(.about__avatar) {
+      color: var(--nws-ink-muted);
+      font: var(--nws-fw-regular) 0.875rem/1.3 var(--nws-font-sans);
+    }
+  }
+
+  // Swap for an <img> with the founder's photo (same size, object-fit: cover)
+  &__avatar {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--nws-blue-500);
+    border-radius: 50%;
+    background: var(--nws-navy-800);
+    color: var(--nws-white);
+    font: var(--nws-fw-bold) 1.25rem/1 var(--nws-font-sans);
+    object-fit: cover;
+  }
+
+  &__cta { margin-top: var(--nws-space-8); }
+
+  // ---- Brand visual ----
+  &__visual {
+    display: grid;
+    justify-items: center;
+    gap: var(--nws-space-6);
+  }
+
+  &__panel {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--nws-navy-700);
+    border-radius: var(--nws-radius-xl);
+    background:
+      radial-gradient(60% 60% at 50% 45%, rgba(10, 133, 252, 0.28) 0%, rgba(10, 133, 252, 0) 70%),
+      linear-gradient(160deg, var(--nws-navy-800) 0%, var(--nws-navy-950) 100%);
+    box-shadow: var(--nws-shadow-lg);
+  }
+
+  &__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(24, 160, 248, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(24, 160, 248, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);
+  }
+
+  &__ring {
+    position: absolute;
+    border: 1px solid rgba(24, 160, 248, 0.22);
+    border-radius: 50%;
+
+    &--lg { width: 78%; aspect-ratio: 1; }
+    &--sm { width: 54%; aspect-ratio: 1; border-style: dashed; animation: about-spin 40s linear infinite; }
+  }
+
+  &__mark {
+    position: relative;
+    width: 46%;
+    height: auto;
+    filter: drop-shadow(0 18px 40px rgba(10, 133, 252, 0.45));
+    animation: about-float 6s var(--nws-ease) infinite alternate;
+  }
+
+  &__tagline {
+    margin: 0;
+    color: var(--nws-silver-300);
+    font: italic var(--nws-fw-medium) 1.125rem/1.4 var(--nws-font-sans);
+  }
+
+  // ---- Values ----
+  &__values {
+    display: grid;
+    gap: var(--nws-space-4);
+    margin: var(--nws-space-16) 0 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--nws-space-6);
+      margin-top: var(--nws-space-24);
+    }
+  }
+
+  &__value {
+    padding: var(--nws-space-6);
+    border: 1px solid var(--nws-navy-700);
+    border-radius: var(--nws-radius-lg);
+    background: rgba(18, 27, 54, 0.6);
+    transition:
+      border-color var(--nws-dur) var(--nws-ease),
+      opacity var(--nws-dur-slow) var(--nws-ease) var(--delay, 0ms),
+      transform var(--nws-dur-slow) var(--nws-ease) var(--delay, 0ms);
+
+    &:hover { border-color: rgba(24, 160, 248, 0.45); }
+  }
+
+  &__value-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: var(--nws-space-4);
+    border-radius: var(--nws-radius-md);
+    background: rgba(10, 133, 252, 0.12);
+    color: var(--nws-blue-400);
+
+    svg { width: 22px; height: 22px; }
+  }
+
+  &__value-title {
+    margin: 0 0 var(--nws-space-2);
+    font: var(--nws-fw-semibold) 1.0625rem/1.3 var(--nws-font-sans);
+  }
+
+  &__value-desc {
+    margin: 0;
+    color: var(--nws-ink-muted);
+    font: var(--nws-fw-regular) 0.9375rem/1.6 var(--nws-font-sans);
+  }
+
+  // ---- Reveal on scroll ----
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity var(--nws-dur-slow) var(--nws-ease) var(--delay, 0ms),
+      transform var(--nws-dur-slow) var(--nws-ease) var(--delay, 0ms);
+
+    &.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@keyframes about-float {
+  from { transform: translateY(-6px); }
+  to { transform: translateY(6px); }
+}
+
+@keyframes about-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__mark,
+  .about__ring--sm { animation: none; }
+}
