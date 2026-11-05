@@ -1,4 +1,4 @@
-import { ArrowUp, Mail, MessageCircle } from 'lucide-react';
+import { ArrowUp, Mail, MessageCircle, Phone } from 'lucide-react';
 import { FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { CONTACT, SOCIALS } from '../../../siteConfig';
 import './index.scss';
@@ -80,15 +80,21 @@ export default function Footer() {
             <h2 className="site-footer__heading">Get in touch</h2>
             <ul>
               <li>
-                <a href={`mailto:${CONTACT.email}`} className="site-footer__contact">
-                  <Mail strokeWidth={1.75} aria-hidden="true" />
-                  {CONTACT.email}
+                <a href={`tel:${CONTACT.phone}`} className="site-footer__contact">
+                  <Phone strokeWidth={1.75} aria-hidden="true" />
+                  {CONTACT.phoneLabel}
                 </a>
               </li>
               <li>
                 <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer" className="site-footer__contact">
                   <MessageCircle strokeWidth={1.75} aria-hidden="true" />
                   {CONTACT.whatsappLabel}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${CONTACT.email}`} className="site-footer__contact">
+                  <Mail strokeWidth={1.75} aria-hidden="true" />
+                  {CONTACT.email}
                 </a>
               </li>
             </ul>

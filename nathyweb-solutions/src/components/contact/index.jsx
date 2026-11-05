@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, CheckCircle2, Clock, Loader2, Mail, MessageCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Clock, Loader2, Mail, MessageCircle, Phone } from 'lucide-react';
 import { CONTACT } from '../../../siteConfig';
 import './index.scss';
 
@@ -121,13 +121,13 @@ export default function Contact() {
 
           <ul className="contact__channels">
             <li>
-              <a href={`mailto:${CONTACT.email}`} className="contact__channel">
+              <a href={`tel:${CONTACT.phone}`} className="contact__channel">
                 <span className="contact__channel-icon">
-                  <Mail strokeWidth={1.75} aria-hidden="true" />
+                  <Phone strokeWidth={1.75} aria-hidden="true" />
                 </span>
                 <span>
-                  <span className="contact__channel-label">Email us</span>
-                  <span className="contact__channel-value">{CONTACT.email}</span>
+                  <span className="contact__channel-label">Call us</span>
+                  <span className="contact__channel-value">{CONTACT.phoneLabel}</span>
                 </span>
               </a>
             </li>
@@ -144,6 +144,17 @@ export default function Contact() {
                 <span>
                   <span className="contact__channel-label">Chat on WhatsApp</span>
                   <span className="contact__channel-value">{CONTACT.whatsappLabel}</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${CONTACT.email}`} className="contact__channel">
+                <span className="contact__channel-icon">
+                  <Mail strokeWidth={1.75} aria-hidden="true" />
+                </span>
+                <span>
+                  <span className="contact__channel-label">Email us</span>
+                  <span className="contact__channel-value">{CONTACT.email}</span>
                 </span>
               </a>
             </li>
